@@ -8,8 +8,7 @@ class FiltersScreen extends StatefulWidget {
   final Function saveFilters;
   final Map<String, bool> currentFilters;
 
-  const FiltersScreen(this.currentFilters, this.saveFilters, {Key? key})
-      : super(key: key);
+  FiltersScreen(this.currentFilters, this.saveFilters);
 
   @override
   _FiltersScreenState createState() => _FiltersScreenState();
@@ -42,7 +41,9 @@ class _FiltersScreenState extends State<FiltersScreen> {
       subtitle: Text(
         description,
       ),
-      onChanged: updateValue(),
+      onChanged: (param) {
+        updateValue(param);
+      },
     );
   }
 
@@ -73,7 +74,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
             padding: EdgeInsets.all(20),
             child: Text(
               'Adjust your meal selection.',
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context).textTheme.bodyText2,
             ),
           ),
           Expanded(
