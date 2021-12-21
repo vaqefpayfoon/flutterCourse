@@ -30,7 +30,9 @@ class MyApp extends StatelessWidget {
           title: 'MyShop',
           theme: ThemeData(
             primarySwatch: Colors.purple,
-            accentColor: Colors.deepOrange,
+            // accentColor: Colors.deepOrange,
+            colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.purple)
+                .copyWith(secondary: Colors.deepOrange),
             fontFamily: 'Lato',
           ),
           home: ProductsOverviewScreen(),
