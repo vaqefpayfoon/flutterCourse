@@ -15,14 +15,14 @@ class CartScreen extends StatelessWidget {
     final cart = Provider.of<Cart>(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Your Cart'),
+        title: Text('Your Cart'),
       ),
       body: Column(
         children: <Widget>[
           Card(
-            margin: const EdgeInsets.all(15),
+            margin: EdgeInsets.all(15),
             child: Padding(
-              padding: const EdgeInsets.all(8),
+              padding: EdgeInsets.all(8),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -30,7 +30,7 @@ class CartScreen extends StatelessWidget {
                     'Total',
                     style: TextStyle(fontSize: 20),
                   ),
-                  const Spacer(),
+                  Spacer(),
                   Chip(
                     label: Text(
                       '\$${cart.totalAmount.toStringAsFixed(2)}',
@@ -38,7 +38,7 @@ class CartScreen extends StatelessWidget {
                     backgroundColor: Theme.of(context).primaryColor,
                   ),
                   FlatButton(
-                    child: const Text('ORDER NOW'),
+                    child: Text('ORDER NOW'),
                     onPressed: () {
                       Provider.of<Orders>(context, listen: false).addOrder(
                         cart.items.values.toList(),
@@ -52,7 +52,7 @@ class CartScreen extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 10),
+          SizedBox(height: 10),
           Expanded(
             child: ListView.builder(
               itemCount: cart.items.length,
